@@ -1,0 +1,34 @@
+mysql -u root
+
+SET PASSWORD-> 'pass'
+mysqladmin -u root password pass
+
+Login->
+mysql -u root -p
+
+
+create database retail;
+use retail;
+
+
+CREATE TABLE category
+(
+cat_id INT NOT NULL AUTO_INCREMENT,
+cat_name varchar(100),
+PRIMARY KEY (cat_id),
+UNIQUE (cat_name)
+);
+
+
+CREATE TABLE product
+(
+prod_id INT NOT NULL AUTO_INCREMENT,
+cat_id INT NOT NULL,
+prod_name varchar(100),
+prod_price INT,
+prod_quantity VARCHAR(100),
+PRIMARY KEY (prod_id),
+FOREIGN KEY (cat_id) REFERENCES category(cat_id),
+UNIQUE (prod_name)
+);
+
